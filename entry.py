@@ -12,8 +12,14 @@ class Entry:
     def get_start_time(self) -> datetime:
         return self.start_time
     
+    def get_duration(self) -> timedelta:
+        return self.end_time - self.start_time
+    
     def get_end_time(self) -> datetime:
         return self.end_time
     
-    def get_duration(self) -> timedelta:
-        return self.end_time - self.start_time
+    def get_title(self) -> str:
+        return self.title
+    
+    def get_description(self) -> str:
+        return self.description
