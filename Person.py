@@ -3,17 +3,23 @@ import Group
 
 class Person:
 
-    def __init__(self, name, age):
+    def __init__(self, name, uuid, email, age):
         self.name = name
+        self.uuid = uuid
+        self.email = email
         self.age = age
         self.schedule = Schedule()
+
         # group that I am apart of
         self.groups = set()
         # group that I got invited to
         self.invited_groups = set()
 
-    def addEntry(self):
-        return
+    def addEntry(self, entry):
+        if self.schedule.checkConflict(entry):
+            return False
+        self.schedule.addEntry(entry)
+        return True
 
     def createGroup(self):
         group = Group()
